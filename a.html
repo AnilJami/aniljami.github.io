@@ -27,19 +27,18 @@ My First Heading</p>
             os = "iOS";
         }
 
-        return { os, deviceType, userAgent: ua };
+        return { os, deviceType };
     }
 
 
     async function getVisitorDetails() {
         // 1. Gather browser details directly from the navigator object
         const browserData = {
-            userAgent: navigator.userAgent,
-            language: navigator.language,
             platform: navigator.platform,
-            cookiesEnabled: navigator.cookieEnabled,
             screenResolution: `${window.screen.width}x${window.screen.height}`
         };
+        console.log("navigator")
+        console.log(navigator)
 
         // 2. Fetch the public IP address using a free external API
         let ipAddress = 'Unknown';
@@ -57,7 +56,8 @@ My First Heading</p>
         return {
             ip: ipAddress,
             browser: browserData,
-            mobileData: mobileData
+            mobileData: mobileData,
+            navigator: navigator
         };
     }
 
