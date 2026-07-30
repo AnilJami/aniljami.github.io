@@ -34,12 +34,9 @@ My First Heading</p>
     async function getVisitorDetails() {
         // 1. Gather browser details directly from the navigator object
         const browserData = {
-            geolocation: navigator.geolocation,
             platform: navigator.platform,
             screenResolution: `${window.screen.width}x${window.screen.height}`
         };
-        console.log("navigator")
-        console.log(navigator)
 
         // 2. Fetch the public IP address using a free external API
         let ipAddress = 'Unknown';
@@ -52,22 +49,18 @@ My First Heading</p>
         }
 
         const mobileData = getMobileDeviceDetails();
-        const navigatorData = navigator;
         // 3. Combine and return the collected data
         return {
             ip: ipAddress,
             browser: browserData,
-            mobileData: mobileData,
-            navigatorData: navigatorData
+            mobileData: mobileData
         };
     }
 
     // Execute when the page hits / loads
     getVisitorDetails().then(details => {
-
         const messageElement = document.getElementById("myMessage");
         messageElement.textContent = JSON.stringify( details, null, 2);
-        console.log("Visitor Information Summary:", details);
     });
 
 </script>
