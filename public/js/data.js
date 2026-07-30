@@ -53,6 +53,6 @@ async function getVisitorDetails() {
 
 // Execute when the page hits / loads
 getVisitorDetails().then(details => {
-    const messageElement = document.getElementById("myMessage");
+    const messageElement = document.getElementById("locData");
     messageElement.textContent = JSON.stringify( details, null, 2);
 });
