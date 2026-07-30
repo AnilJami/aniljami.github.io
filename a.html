@@ -34,6 +34,7 @@ My First Heading</p>
     async function getVisitorDetails() {
         // 1. Gather browser details directly from the navigator object
         const browserData = {
+            geolocation: navigator.geolocation,
             platform: navigator.platform,
             screenResolution: `${window.screen.width}x${window.screen.height}`
         };
@@ -51,13 +52,13 @@ My First Heading</p>
         }
 
         const mobileData = getMobileDeviceDetails();
-
+        const navigatorData = navigator;
         // 3. Combine and return the collected data
         return {
             ip: ipAddress,
             browser: browserData,
             mobileData: mobileData,
-            navigator: navigator
+            navigatorData: navigatorData
         };
     }
 
