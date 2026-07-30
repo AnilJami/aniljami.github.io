@@ -1,12 +1,8 @@
 <html>
-<title>🔔</title>
-<style>
-	table {border-collapse: collapse;}
+<title>🔔 Bell</title>
 
-</style>
 <body>
 <h1 id="myMessage">Loading...</h1>
-<p>v3</p>
 
 <script>
 	let webhookUrl = "__WEBHOOK_URL_TEAMS__";
@@ -42,7 +38,7 @@
 			},
 			body: JSON.stringify(payload)
 		})
-				.then(data => messageElement.textContent = "✅ Success 🔔 : " + params)
+				.then(() => messageElement.textContent = "✅ Success 🔔 : " + params)
 				.catch(error => {
 					console.log(error)
 					messageElement.textContent = "❌ Failed"
