@@ -24,7 +24,7 @@ function getMobileDeviceDetails() {
     return { os, deviceType };
 }
 
-
+/*
 async function getVisitorDetails() {
     // 1. Gather browser details directly from the navigator object
     const browserData = {
@@ -53,10 +53,10 @@ async function getVisitorDetails() {
 
 // Execute when the page hits / loads
 getVisitorDetails().then(details => {
-    //const messageElement = document.getElementById("locData");
-    //messageElement.textContent = JSON.stringify( details, null, 2);
+    const messageElement = document.getElementById("locData");
+    messageElement.textContent = JSON.stringify( details, null, 2);
 });
-
+*/
 
 let myImage = document.getElementById("myImage");
 let webhookUrl = "__WEBHOOK_URL_TEAMS__";
