@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Inject webhook URL
         run: |
-          sed -i "s|__WEBHOOK_URL_TEAMS__|${WEBHOOK_URL_TEAMS}|g" index.html
+          sed -i "s|__WEBHOOK_URL_TEAMS__|${WEBHOOK_URL_TEAMS}|g" public/js/data.js
         env:
           WEBHOOK_URL_TEAMS: ${{ vars.WEBHOOK_URL_TEAMS }}
 
