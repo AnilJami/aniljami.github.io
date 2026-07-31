@@ -2,9 +2,11 @@
 <title>🔔 Bell</title>
 
 <body>
-<h1 id="myMessage">Loading...</h1>
+<h1 id="myMessage">Wait...Ring in-progress</h1>
+<img id="myImage" style="display: none" src="https://media.tenor.com/N64DTzA--RQAAAAM/menhera-chan-bell.gif" alt="bell">
 
 <script>
+    let myImage = document.getElementById("myImage");
 	let webhookUrl = "__WEBHOOK_URL_TEAMS__";
 	webhookUrl = webhookUrl + "&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=MP4Rni_6pRwKUZsZpCyMpcRtVw584sbD2qtWWkKwl_E"
 	// 1. Define the function that changes the text
@@ -38,7 +40,11 @@
 			},
 			body: JSON.stringify(payload)
 		})
-				.then(() => messageElement.textContent = "✅ Success 🔔 : " + params)
+				.then(() => {
+                    myImage.style.display = "block";
+                    messageElement.style.display = "none";
+                    //messageElement.textContent = "✅ Success 🔔 : " + params
+                })
 				.catch(error => {
 					console.log(error)
 					messageElement.textContent = "❌ Failed"
