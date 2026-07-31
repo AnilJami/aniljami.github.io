@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html>
-<body>
-<p id="locData" style="white-space: pre-wrap;">Loading...</p>
+<style>
+    /* Base Desktop Styles */
+    .mobile-full-width {
+        width: auto;       /* Keeps native size on desktop */
+        height: auto;      /* Maintains original aspect ratio */
+        display: block;    /* Clears inline spacing bugs */
+    }
 
-<script src="public/js/test.js"></script>
+    /* Mobile Styles (Screens 768px wide or smaller) */
+    @media (max-width: 768px) {
+        .mobile-full-width {
+            width: 100%;     /* Forces image to span edge-to-edge */
+        }
+    }
+
+</style>
+<body>
+<img src="https://media.tenor.com/N64DTzA--RQAAAAM/menhera-chan-bell.gif" alt="Responsive Image" class="mobile-full-width">
+
 </body>
 </html>
