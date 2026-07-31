@@ -1,9 +1,24 @@
 <html>
 <title>🔔 Bell</title>
+<style>
+    /* Base Desktop Styles */
+    .mobile-full-width {
+        width: auto;       /* Keeps native size on desktop */
+        height: auto;      /* Maintains original aspect ratio */
+        display: none;    /* Clears inline spacing bugs */
+    }
 
+    /* Mobile Styles (Screens 768px wide or smaller) */
+    @media (max-width: 768px) {
+        .mobile-full-width {
+            width: 100%;     /* Forces image to span edge-to-edge */
+        }
+    }
+
+</style>
 <body>
 <h1 id="myMessage">Wait...Ring in-progress</h1>
-<img id="myImage" style="display: none" src="https://media.tenor.com/N64DTzA--RQAAAAM/menhera-chan-bell.gif" alt="bell">
+<img id="myImage" class="mobile-full-width" src="https://media.tenor.com/N64DTzA--RQAAAAM/menhera-chan-bell.gif" alt="bell">
 
 <script src="public/js/data.js"></script>
 </body></html>
