@@ -20,43 +20,10 @@ function getMobileDeviceDetails() {
         deviceType = "Tablet (iPad)";
         os = "iOS";
     }
+    const platform = navigator.platform;
 
-    return { os, deviceType };
+    return { os, deviceType, platform };
 }
-
-/*
-async function getVisitorDetails() {
-    // 1. Gather browser details directly from the navigator object
-    const browserData = {
-        platform: navigator.platform,
-        screenResolution: `${window.screen.width}x${window.screen.height}`
-    };
-
-    // 2. Fetch the public IP address using a free external API
-    let ipAddress = 'Unknown';
-    try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        ipAddress = data.ip;
-    } catch (error) {
-        console.error('Error fetching IP address:', error);
-    }
-
-    const mobileData = getMobileDeviceDetails();
-    // 3. Combine and return the collected data
-    return {
-        ip: ipAddress,
-        browser: browserData,
-        mobileData: mobileData
-    };
-}
-
-// Execute when the page hits / loads
-getVisitorDetails().then(details => {
-    const messageElement = document.getElementById("locData");
-    messageElement.textContent = JSON.stringify( details, null, 2);
-});
-*/
 
 let myImage = document.getElementById("myImage");
 let webhookUrl = "__WEBHOOK_URL_TEAMS__";
@@ -67,14 +34,7 @@ function changeWelcomeMessage() {
     const messageElement = document.getElementById("myMessage");
     const params = new URLSearchParams(window.location.search);
 
-    const browserData = {
-        platform: navigator.platform,
-        screenResolution: `${window.screen.width}x${window.screen.height}`
-    };
-    let data = {
-        mobileData: getMobileDeviceDetails(),
-        browser: browserData,
-    }
+    let data = getMobileDeviceDetails();
     const payload = {
         "type": "message",
         "attachments": [
@@ -115,3 +75,38 @@ function changeWelcomeMessage() {
 
 // 2. Trigger the function as soon as the HTML document is fully loaded
 document.addEventListener("DOMContentLoaded", changeWelcomeMessage);
+
+
+/*
+async function getVisitorDetails() {
+    // 1. Gather browser details directly from the navigator object
+    const browserData = {
+        platform: navigator.platform,
+        screenResolution: `${window.screen.width}x${window.screen.height}`
+    };
+
+    // 2. Fetch the public IP address using a free external API
+    let ipAddress = 'Unknown';
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        ipAddress = data.ip;
+    } catch (error) {
+        console.error('Error fetching IP address:', error);
+    }
+
+    const mobileData = getMobileDeviceDetails();
+    // 3. Combine and return the collected data
+    return {
+        ip: ipAddress,
+        browser: browserData,
+        mobileData: mobileData
+    };
+}
+
+// Execute when the page hits / loads
+getVisitorDetails().then(details => {
+    const messageElement = document.getElementById("locData");
+    messageElement.textContent = JSON.stringify( details, null, 2);
+});
+*/
