@@ -22,7 +22,7 @@ function getMobileDeviceDetails() {
     }
     const platform = navigator.platform;
 
-    return { os, deviceType, platform };
+    return os + ' / ' + deviceType + ' / ' + platform;
 }
 
 let myImage = document.getElementById("myImage");
@@ -45,7 +45,7 @@ function changeWelcomeMessage() {
                     "body": [
                         {
                             "type": "TextBlock",
-                            "text": JSON.stringify( data, null, 2)
+                            "text": data
                         }
                     ],
                     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
